@@ -1,8 +1,18 @@
+const dotenv = require('dotenv')
+
+if (process.env.NODE_ENV !='production'){
+  dotenv.config()
+}
+
+
+
+
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Gatsby Blog Site`,
+    description: `bootcamp 2020`,
+    author: `M Tauqeer`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -27,8 +37,19 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `7qqy1yxs9hrf`,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken:`t0fP7ELlxqh2VIsocQgfqiJw2DneZ1F6a1o0A4qWdA4`,
+        forceFullSync: true,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+ 
   ],
 }
+
